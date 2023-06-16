@@ -19,6 +19,14 @@ function getBooksBorrowedCount(books) {
   return sum
 }
 
+//creation of helper function combining .sort and .splice with an array
+function sortAndSplice(array) {
+  array.sort((result1, result2) => (result2.count > result1.count ? 1 : -1))
+  array.splice(5)
+  return array
+}
+
+
 function getMostCommonGenres(books) {
   let result = {}
   books.forEach((book) => {
@@ -37,9 +45,9 @@ function getMostCommonGenres(books) {
       }
       combinedArray.push(newValue)
     }
-  combinedArray.sort((result1, result2) => (result2.count > result1.count ? 1 : -1))
-  combinedArray.splice(5)
-  return combinedArray
+    //using helper function on newly formed array
+  let finalArray = sortAndSplice(combinedArray)
+  return finalArray
 }
 
 

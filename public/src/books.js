@@ -1,3 +1,4 @@
+//making use of a function from accounts.js as a helper function
 const { findAccountById } = require('./accounts')
 
 
@@ -23,6 +24,7 @@ function partitionBooksByBorrowedStatus(books) {
 
 function getBorrowersForBook(book, accounts) {
 const result = book.borrows.map((borrow) => {
+  //applying helper function
   const accountInfo = findAccountById(accounts, borrow.id);
   const newTransaction = {
       ...borrow,
